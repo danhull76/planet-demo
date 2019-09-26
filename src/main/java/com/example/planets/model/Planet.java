@@ -52,7 +52,7 @@ public class Planet {
 
     @JsonProperty("RadiusJpt")
     private Double radiusJpt;
-    
+
     @JsonProperty("DiscoveryYear")
     private Integer discoveryYear;
 

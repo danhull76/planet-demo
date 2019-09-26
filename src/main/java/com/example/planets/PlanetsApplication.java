@@ -57,6 +57,11 @@ public class PlanetsApplication {
         for ( Planet p : planets ) {
             planetRepository.save(p);
         }
+
+        // TODO: remove after controller functionality added
+        System.out.println("Planet with hottest star: \n" + planetRepository.findPlanetWithHottestStar());
+        System.out.println("Orphan planet count: " + planetRepository.findOrphanPlanets().size());
+
     }
 
 }
