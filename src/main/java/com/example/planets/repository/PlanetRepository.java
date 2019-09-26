@@ -1,7 +1,6 @@
 package com.example.planets.repository;
 
 import com.example.planets.model.Planet;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -18,5 +17,9 @@ public interface PlanetRepository extends CrudRepository<Planet, String> {
     @Query(value = "SELECT * FROM PLANET p WHERE p.TYPE = 3",
             nativeQuery = true)
     List<Planet> findOrphanPlanets();
+
+    /* select COUNT(*), DISCOVERY_YEAR from PLANET GROUP BY DISCOVERY_YEAR */
+
+    /* TODO: make Timeline DTO and map results directly with JPQL */
 
 }
