@@ -14,6 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import javax.annotation.PostConstruct;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -47,7 +48,10 @@ public class PlanetsApplication {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        List<Planet> planets = mapper.readValue(jsonPlanetArray, new TypeReference<List<Planet>>(){});
+
+        // TODO: data is all null on read
+        //List<Planet> planets = mapper.readValue(jsonPlanetArray, new TypeReference<List<Planet>>(){});
+        List<Planet> planets = Arrays.asList(mapper.readValue(jsonPlanetArray, Planet[].class));
 
         System.out.println("Planets parsed from JSON: " + planets.size());
 
