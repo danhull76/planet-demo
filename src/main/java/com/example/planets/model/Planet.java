@@ -43,6 +43,8 @@ public class Planet {
 
     // Jupiter radius: 69911000 m
 
+
+
     @Id
     @JsonProperty("PlanetIdentifier")
     private String planetIdentifier;
@@ -56,6 +58,7 @@ public class Planet {
     @JsonProperty("DiscoveryYear")
     private Integer discoveryYear;
 
+    /* TypeFlag : 0=no known stellar binary companion; 1=P-type binary (circumbinary); 2=S-type binary; 3=orphan planet (no star) */
     @JsonProperty("TypeFlag")
     private Integer type;
 
