@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Data
 public class Planet {
     /*
     "PlanetIdentifier": "KOI-1843.03",
@@ -39,30 +40,23 @@ public class Planet {
     "HostStarAgeGyr": ""
      */
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private Long id;
 
-    @Getter
-    @Setter
+    // Jupiter radius: 69911000 m
+
+    @Id
     @JsonProperty("PlanetIdentifier")
     private String planetIdentifier;
 
-    @Getter
-    @Setter
     @JsonProperty("HostStarTempK")
     private Double hostStarTempK;
 
-    @Getter
-    @Setter
     @JsonProperty("RadiusJpt")
     private Double radiusJpt;
-
-    @Getter
-    @Setter
+    
     @JsonProperty("DiscoveryYear")
     private Integer discoveryYear;
+
+    @JsonProperty("TypeFlag")
+    private Integer type;
 
 }

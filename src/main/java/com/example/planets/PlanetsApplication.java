@@ -49,8 +49,6 @@ public class PlanetsApplication {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        // TODO: data is all null on read
-        //List<Planet> planets = mapper.readValue(jsonPlanetArray, new TypeReference<List<Planet>>(){});
         List<Planet> planets = Arrays.asList(mapper.readValue(jsonPlanetArray, Planet[].class));
 
         System.out.println("Planets parsed from JSON: " + planets.size());
