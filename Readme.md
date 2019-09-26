@@ -18,6 +18,6 @@ Once started, the application will be available at localhost:8080/ via web brows
 
 
 To run in a docker container:
-
+(from the "docker" folder under the project root)
 * Build the image: docker build --tag=planet-demo:latest --rm=true .
-* Start the image: 
+* Start the image: docker run -p 8080:8080 planet-demo:latest
