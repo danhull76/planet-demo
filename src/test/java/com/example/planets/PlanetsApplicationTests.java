@@ -20,10 +20,6 @@ public class PlanetsApplicationTests {
     @Autowired
     PlanetService planetService;
 
-//    @Test
-//    public void contextLoads() {
-//    }
-
     @Test
     public void testOrphanCount() {
         Integer count = planetService.getOrphanPlanetCount();
