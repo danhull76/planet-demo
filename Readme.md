@@ -1,4 +1,4 @@
-To clone this demo (you've already done this if you're reading this!)
+To clone this demo:
 
 git clone https://github.com/danhull76/planet-demo.git
 
