@@ -1,8 +1,7 @@
-FROM adoptopenjdk/openjdk11
+FROM openjdk:11
 MAINTAINER danhull@gmail.com
-COPY planets-0.0.1-SNAPSHOT.jar /opt/spring-cloud/lib/planets.jar
-COPY entrypoint.sh /opt/spring-cloud/bin/
-ENTRYPOINT ["/usr/bin/java"]
-CMD ["-jar", "/opt/spring-cloud/lib/planets.jar"]
-VOLUME /var/lib/spring-cloud/config-repo
+COPY planets-0.0.1-SNAPSHOT.jar /usr/src/planets.jar
+#COPY entrypoint.sh /opt/spring-cloud/bin/
+#ENTRYPOINT ["/usr/bin/java"]
+#CMD ["-jar", "/opt/spring-cloud/lib/planets.jar"]
 EXPOSE 8888
