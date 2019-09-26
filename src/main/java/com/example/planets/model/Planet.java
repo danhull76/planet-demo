@@ -3,13 +3,14 @@ package com.example.planets.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
-public class Planet {
+public class Planet implements Comparable<Planet>{
     /*
+    JSON Data format for Planet
+
     "PlanetIdentifier": "KOI-1843.03",
     "TypeFlag": 0,
     "PlanetaryMassJpt": 0.0014,
@@ -57,5 +58,9 @@ public class Planet {
     /* TypeFlag : 0=no known stellar binary companion; 1=P-type binary (circumbinary); 2=S-type binary; 3=orphan planet (no star) */
     @JsonProperty("TypeFlag")
     private Integer type;
+
+    public int compareTo( Planet p ) {
+        return this.discoveryYear.compareTo(p.discoveryYear);
+    }
 
 }

@@ -20,6 +20,13 @@ public interface PlanetRepository extends CrudRepository<Planet, String> {
 
     /* select COUNT(*), DISCOVERY_YEAR from PLANET GROUP BY DISCOVERY_YEAR */
 
-    /* TODO: make Timeline DTO and map results directly with JPQL */
+    @Query(value = "SELECT p FROM Planet p WHERE p.radiusJpt < 1 AND p.discoveryYear IS NOT NULL ORDER BY p.discoveryYear")
+    List<Planet> findSmallPlanets();
+
+    @Query(value = "SELECT p FROM Planet p WHERE p.radiusJpt >= 1 AND p.radiusJpt < 2  AND p.discoveryYear IS NOT NULL ORDER BY p.discoveryYear")
+    List<Planet> findMediumPlanets();
+
+    @Query(value = "SELECT p FROM Planet p WHERE p.radiusJpt >= 2 AND p.discoveryYear IS NOT NULL ORDER BY p.discoveryYear")
+    List<Planet> findLargePlanets();
 
 }

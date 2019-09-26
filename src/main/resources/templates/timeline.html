@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head><title>Planet Discovery Timeline</title></head>
+<body>
+<h1>Planet Discovery Timeline</h1>
+<p>Number of planets discovered per year in the categories "small" (less than one Jupter radius), "medium" (less than two Jupiter radii), and "large" (two or more jupter radii).</p>
+<table cellpadding="10">
+    <tr>
+        <th>Year</th>
+        <th>Small</th>
+        <th>Medium</th>
+        <th>Large</th>
+    </tr>
+    <tr th:each="tl: ${timeline}">
+        <td th:text="${tl.year}"></td>
+        <td th:text="${tl.small}"></td>
+        <td th:text="${tl.medium}"></td>
+        <td th:text="${tl.large}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
