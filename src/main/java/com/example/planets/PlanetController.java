@@ -1,5 +1,6 @@
 package com.example.planets;
 
+import com.example.planets.model.Planet;
 import com.example.planets.model.TimelineDTO;
 import com.example.planets.repository.PlanetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,6 @@ import java.util.List;
 public class PlanetController {
 
     @Autowired
-    PlanetRepository planetRepository;
-
-    @Autowired
     PlanetService planetService;
 
     @GetMapping("/")
@@ -26,15 +24,17 @@ public class PlanetController {
 
     @GetMapping("/orphans")
     public String orphans(Model model) {
-        model.addAttribute("orphanCount", planetRepository.findOrphanPlanets().size());
+        model.addAttribute("orphanCount", planetService.getOrphanPlanetCount());
 
         return "orphans";
     }
 
     @GetMapping("/hottest")
     public String hottest(Model model) {
-        model.addAttribute("planetName", planetRepository.findPlanetWithHottestStar().getPlanetIdentifier());
-        model.addAttribute("starTemp", planetRepository.findPlanetWithHottestStar().getHostStarTempK());
+        Planet p = planetService.getPlanetWithHottestStar();
+
+        model.addAttribute("planetName", p.getPlanetIdentifier());
+        model.addAttribute("starTemp", p.getHostStarTempK());
 
         return "hottest";
     }

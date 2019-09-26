@@ -14,6 +14,14 @@ public class PlanetService {
     @Autowired
     PlanetRepository planetRepository;
 
+    public Integer getOrphanPlanetCount() {
+        return planetRepository.findOrphanPlanets().size();
+    }
+
+    public Planet getPlanetWithHottestStar() {
+        return planetRepository.findPlanetWithHottestStar();
+    }
+
     public List<TimelineDTO> getTimeline() {
         Map<Integer, TimelineDTO> timelineMap = new HashMap<>();
 

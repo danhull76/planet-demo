@@ -32,7 +32,6 @@ public class PlanetsApplication {
         SpringApplication.run(PlanetsApplication.class, args);
     }
 
-    // TODO: better exception/error handling
     @PostConstruct
     private void init() throws Exception {
         System.out.println("Reading planets data from URL");
@@ -58,7 +57,7 @@ public class PlanetsApplication {
             planetRepository.save(p);
         }
 
-        // TODO: remove after controller functionality added
+        // Sanity check logging on startup
         System.out.println("Planet with hottest star: \n" + planetRepository.findPlanetWithHottestStar());
         System.out.println("Orphan planet count: " + planetRepository.findOrphanPlanets().size());
 
