@@ -19,13 +19,17 @@ public class TimelineDTO implements Comparable<TimelineDTO>{
         this.small = 0;
     }
 
-    public Integer year;
+    public TimelineDTO() {
 
-    public Integer large;
+    }
 
-    public Integer medium;
+    private Integer year;
 
-    public Integer small;
+    private Integer large;
+
+    private Integer medium;
+
+    private Integer small;
 
     public int compareTo( TimelineDTO t ) {
         return this.year.compareTo(t.year);
